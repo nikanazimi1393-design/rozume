@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}درباره {{ profile.name }}{% endblock %}
+{% block content %}
+<section class="reveal">
+  <h2>👤 درباره من</h2>
+  <p class="bio">{{ profile.bio }}</p>
+  <ul class="info">
+    <li>✉️ ایمیل: {{ profile.email }}</li>
+    <li>📞 تلفن: {{ profile.phone }}</li>
+    <li>📍 {{ profile.location }}</li>
+    <li>🔗 <a href="{{ profile.github }}">گیت‌هاب</a> • <a href="{{ profile.linkedin }}">لینکدین</a></li>
+  </ul>
+</section>
+
+<section class="reveal">
+  <h3>🛠 مهارت‌ها</h3>
+  <div class="skills">
+    {% for s in skills %}
+    <div class="skill">
+      <div class="row"><b>{{ s.name }}</b><span>{{ s.level }}٪</span></div>
+      <div class="bar"><div style="width:{{ s.level }}%"></div></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="reveal">
+  <h3>📅 مسیر من</h3>
+  <div class="timeline">
+    {% for t in timeline %}
+    <div class="t-item">
+      <div class="t-year">{{ t.year }}</div>
+      <div><b>{{ t.title }}</b><p>{{ t.text }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

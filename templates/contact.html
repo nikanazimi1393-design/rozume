@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}تماس{% endblock %}
+{% block content %}
+<h2>📩 تماس با من</h2>
+<p class="bio">فرم رو پر کن، پیامت توی دیتابیس ذخیره میشه. از <a href="/messages">اینجا</a> می‌تونی ببینیش.</p>
+<form method="post" class="form reveal">
+  <label>نام<input name="name" required maxlength="50" placeholder="اسمت"></label>
+  <label>ایمیل<input name="email" type="email" placeholder="you@mail.com"></label>
+  <label>پیام<textarea name="msg" required rows="5" placeholder="سلام! ..."></textarea></label>
+  <button class="btn primary" type="submit">ارسال پیام ✈️</button>
+</form>
+<div class="contact-cards">
+  <div class="card">✉️ {{ profile.email }}</div>
+  <div class="card">📞 {{ profile.phone }}</div>
+  <div class="card">📍 {{ profile.location }}</div>
+</div>
+{% endblock %}

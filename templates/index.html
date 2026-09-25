@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ profile.name }} • {{ profile.title }}{% endblock %}
+{% block content %}
+<section class="hero reveal">
+  <div class="avatar">{{ profile.avatar }}</div>
+  <div>
+    <p class="hello">سلام، من</p>
+    <h1>{{ profile.name }} <span>هستم 👋</span></h1>
+    <h2 class="typing" id="typing">{{ profile.title }}</h2>
+    <p class="bio">{{ profile.bio }}</p>
+    <div class="btns">
+      <a class="btn primary" href="/portfolio">دیدن نمونه‌کارها</a>
+      <a class="btn ghost" href="/contact">تماس با من</a>
+    </div>
+    <div class="meta">📍 {{ profile.location }} • ✉️ {{ profile.email }}</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h3>🛠 مهارت‌ها</h3>
+  <div class="skills">
+    {% for s in skills %}
+    <div class="skill">
+      <div class="row"><b>{{ s.name }}</b><span>{{ s.level }}٪</span></div>
+      <div class="bar"><div style="width:{{ s.level }}%"></div></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="reveal">
+  <h3>⭐ پروژه‌های منتخب</h3>
+  <div class="grid">
+    {% for p in projects %}
+    <div class="card">
+      <div class="emoji">{{ p.emoji }}</div>
+      <h4>{{ p.title }}</h4>
+      <p>{{ p.desc }}</p>
+      <div class="tags">{% for t in p.tech %}<span>{{ t }}</span>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="btn ghost" href="/portfolio">همه پروژه‌ها ←</a>
+</section>
+{% endblock %}
