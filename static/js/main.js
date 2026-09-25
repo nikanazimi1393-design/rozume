@@ -13,7 +13,20 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), {threshold: .1});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// تایپینگ عنوان
+// فیلتر نمونه‌کارها (بدون نیاز به سرور)
+const filters = document.getElementById('filters');
+if (filters) {
+  filters.addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    document.querySelectorAll('#filters .chip').forEach(c => c.classList.remove('on'));
+    chip.classList.add('on');
+    const f = chip.dataset.filter;
+    document.querySelectorAll('#projectGrid .card').forEach(card => {
+      card.style.display = (f === 'همه' || card.dataset.cat === f) ? '' : 'none';
+    });
+  });
+}
 const tw = document.getElementById('typing');
 if (tw) {
   const texts = [tw.textContent, 'عاشق پایتون 🐍', 'سازنده ابزارهای کاربردی 🛠', 'دنبال پروژه واقعی 🚀'];

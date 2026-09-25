@@ -2,14 +2,14 @@
 {% block title %}نمونه‌کارها{% endblock %}
 {% block content %}
 <h2>💼 نمونه‌کارها</h2>
-<div class="filters">
+<div class="filters" id="filters">
   {% for c in cats %}
-  <a href="/portfolio?cat={{ c }}" class="chip {{ 'on' if c==active }}">{{ c }}</a>
+  <button class="chip {{ 'on' if c==active }}" data-filter="{{ c }}">{{ c }}</button>
   {% endfor %}
 </div>
-<div class="grid">
+<div class="grid" id="projectGrid">
   {% for p in projects %}
-  <div class="card reveal">
+  <div class="card reveal in" data-cat="{{ p.cat }}">
     <div class="emoji">{{ p.emoji }}</div>
     <h4>{{ p.title }}</h4>
     <small class="cat">{{ p.cat }}</small>
