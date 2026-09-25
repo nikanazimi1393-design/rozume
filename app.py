@@ -51,7 +51,7 @@ PROJECTS = [
     {"id": 5, "title": "بازی Warzone سه‌بعدی", "cat": "بازی",
      "desc": "بتل‌رویال اول‌شخص تحت وب با Three.js؛ ۲۴ بات هوشمند، زون گازی، کیل‌استریک UAV و حمله هوایی.",
      "tech": ["JavaScript", "Three.js"], "emoji": "🎮",
-     "link": ""},
+     "link": "https://github.com/nikanazimi1393-design/warzone-low-"},
     {"id": 6, "title": "سایت رزومه شخصی (همین سایت)", "cat": "وب",
      "desc": "سایت رزومه فارسی با Flask؛ چند صفحه، فرم تماس با دیتابیس، حالت شب/روز و API پروژه‌ها.",
      "tech": ["Python", "Flask", "SQLite"], "emoji": "📄",
